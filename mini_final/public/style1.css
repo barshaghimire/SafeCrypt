@@ -1,0 +1,447 @@
+/* General Reset */
+body, h1, h2, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+/* Welcome Message Styling */
+.welcome-message {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffffff; /* Adjust to match your theme */
+    animation: fadeIn 2s ease-in-out;
+}
+
+.welcome-message h1 {
+    font-size: 3rem; /* Increase font size for header */
+    color: #2ebc6b;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.welcome-message p {
+    font-size: 1.5rem; /* Increased font size for paragraphs */
+    color: #555555;
+    margin: 10px 0;
+    line-height: 1.6;
+    animation: fadeInText 1.5s ease-in-out 0.5s; /* Delayed animation */
+}
+
+.welcome-message p i {
+    font-style: italic;
+    color: #333333; /* Slightly darker for emphasis */
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between logo and nav */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%; /* Ensure the container takes the full width */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  /* Align the logo to the left */
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+}
+
+.logo span {
+    font-size: 2rem;
+    color: #2ebc6b;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.site-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative; /* Required for dropdown */
+}
+
+nav ul li a {
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 20px;
+    display: block; /* Ensure the link spans the entire area */
+}
+
+header nav ul li a:hover {
+    background-color: #2ebc6b;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Dropdown styles */
+nav ul li.dropdown:hover .dropdown-content {
+    display: block; /* Show the dropdown when hovered */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    min-width: 200px; /* Set a minimum width for the dropdown */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure dropdown is above other content */
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    font-size: 18px;
+    text-align: left; /* Align text to the left */
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+    background-color: #2ebc6b;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Slider */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 800px; /* Adjusted height */
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 1.5s ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    height: 50%; /* Adjusted height */
+    object-fit: cover;
+}
+
+/* Welcome Message */
+.welcome-message {
+    text-align: center;
+    padding: 20px;
+}
+
+/* What We Recycle Section */
+#what-we-recycle {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transform: translateY(30px); /* Offset for animation */
+    transition: opacity 1s, transform 1s; /* Transition properties */
+}
+
+#what-we-recycle.active {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position when active */
+}
+
+#what-we-recycle h2 {
+    font-size: 2rem;
+    color: #2ebc6b;
+    margin-bottom: 10px;
+}
+
+#what-we-recycle p {
+    font-size: 1rem;
+    color: #a0a0a0;
+    margin-bottom: 30px;
+}
+
+.recycle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0;
+}
+
+.recycle-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    opacity: 0;
+    transform: translateY(30px); /* Offset */
+}
+
+.recycle-item.active {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position when active */
+}
+
+.recycle-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.recycle-item p {
+    font-size: 1rem;
+    color: #333333;
+    margin: 0;
+}
+
+.recycle-item:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #2ebc6b;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer .footer-section p {
+    color: white; /* Set text color to white */
+}
+
+/* E-Waste Management Section */
+#e-waste-management {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+#e-waste-management header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#e-waste-management header h2 {
+    font-size: 2rem;
+    color: #2ebc6b;
+    margin-bottom: 10px;
+}
+
+#e-waste-management header p {
+    font-size: 1rem;
+    color: #333333;
+}
+
+.dos-donts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.dos,
+.donts {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+    max-width: 48%;
+}
+
+.dos h3,
+.donts h3 {
+    font-size: 1.5rem;
+    color: #2ebc6b;
+    margin-bottom: 15px;
+}
+
+.dos ul,
+.donts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dos ul li,
+.donts ul li {
+    font-size: 1rem;
+    color: #333333;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.dos ul li::before {
+    content: "✔";
+    color: #2ebc6b;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.donts ul li::before {
+    content: "✘";
+    color: #e63946;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Benefits Section */
+#benefits {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s, transform 1s;
+}
+
+#benefits.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#benefits header h2 {
+    font-size: 2rem;
+    color: #2ebc6b;
+    margin-bottom: 20px;
+}
+
+#benefits header p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.benefit-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0;
+}
+
+.benefit-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px); /* Offset */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.benefit-item.active {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position when active */
+}
+
+.benefit-item img {
+    width: 200px; /* Increase the width */
+    height: 150px; /* Adjust the height accordingly */
+    margin-bottom: 20px;
+    object-fit: cover; /* Ensure the images maintain a good aspect ratio */
+}
+
+
+.benefit-item h3 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.benefit-item p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+}
+
+.benefit-item:hover {
+    transform: scale(1.05);
+}
+
+/* Animation for benefits section */
+@keyframes fadeInBenefits {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#benefits header p {
+    font-size: 1.2rem;
+    color: white; /* Changed the color to white */
+    margin-bottom: 40px;
+}
+

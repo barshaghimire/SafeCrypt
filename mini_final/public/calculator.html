@@ -1,0 +1,335 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Impact Calculator</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            background-size: 300% 300%;
+            animation: gradientAnimation 10s infinite;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .eco-impact {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+        }
+
+        .eco-impact h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .eco-impact label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .eco-impact select, .eco-impact input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .eco-impact button {
+            background: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .eco-impact button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .result p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="eco-impact">
+        <h2>Eco-Impact Calculator</h2>
+        <form id="ecoCalculator">
+            <label for="deviceType">Select Device Type:</label>
+            <select id="deviceType" name="deviceType">
+                <option value="smartphone">Smartphone</option>
+                <option value="laptop">Laptop</option>
+                <option value="tv">Television</option>
+                <option value="desktop">Desktop Computer</option>
+            </select>
+
+            <label for="quantity">Enter Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" placeholder="1" required>
+
+            <label for="deviceAge">Device Age (in years):</label>
+            <input type="number" id="deviceAge" name="deviceAge" min="0" placeholder="0" required>
+
+            <label for="condition">Select Device Condition:</label>
+            <select id="condition" name="condition">
+                <option value="good">Good</option>
+                <option value="fair">Fair</option>
+                <option value="poor">Poor</option>
+            </select>
+
+            <button type="button" onclick="calculateImpact()">Calculate Impact</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </section>
+
+    <script>
+        function calculateImpact() {
+            const deviceData = {
+                smartphone: { harm: 5, benefit: 3 },
+                laptop: { harm: 20, benefit: 15 },
+                tv: { harm: 30, benefit: 20 },
+                desktop: { harm: 25, benefit: 18 }
+            };
+
+            const conditionModifiers = {
+                good: 1,
+                fair: 1.5,
+                poor: 2
+            };
+
+            const deviceType = document.getElementById("deviceType").value;
+            const quantity = parseInt(document.getElementById("quantity").value);
+            const deviceAge = parseInt(document.getElementById("deviceAge").value);
+            const condition = document.getElementById("condition").value;
+
+            if (!quantity || quantity <= 0 || !deviceAge || deviceAge < 0) {
+                document.getElementById("result").innerHTML = "Please enter valid inputs.";
+                return;
+            }
+
+            const { harm, benefit } = deviceData[deviceType];
+            const conditionModifier = conditionModifiers[condition];
+
+            const totalHarm = harm * quantity * conditionModifier * (1 + deviceAge * 0.1);
+            const totalBenefit = benefit * quantity * (1 - deviceAge * 0.05);
+
+            document.getElementById("result").innerHTML = `
+                <p><strong>Potential Environmental Harm:</strong> ${totalHarm.toFixed(2)} kg CO₂ equivalent.</p>
+                <p><strong>Benefits of Secure Disposal:</strong> Avoided ${totalBenefit.toFixed(2)} kg of toxic waste.</p>
+            `;
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Impact Calculator</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f9f9f9, #27ae60);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .eco-impact {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid #2ebc6b;
+        }
+
+        .eco-impact h2 {
+            color: #2ebc6b;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 2px solid #2ebc6b;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .eco-impact label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+        }
+
+        .eco-impact select,
+        .eco-impact input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .eco-impact button {
+            background: #2ebc6b;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .eco-impact button:hover {
+            background: #249a59;
+            transform: translateY(-2px);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            text-align: left;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .result p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="eco-impact">
+        <h2>Eco-Impact Calculator</h2>
+        <form id="ecoCalculator">
+            <label for="deviceType">Select Device Type:</label>
+            <select id="deviceType" name="deviceType">
+                <option value="smartphone">Smartphone</option>
+                <option value="laptop">Laptop</option>
+                <option value="tv">Television</option>
+                <option value="desktop">Desktop Computer</option>
+                <option value="computerEquipment">Computer Equipment</option>
+                <option value="camcorder">Camcorder</option>
+                <option value="digitalCamera">Digital Camera</option>
+                <option value="securityDevice">Security Device</option>
+                <option value="wiresCables">Wires & Cables</option>
+                <option value="batteries">Batteries</option>
+                <option value="audioDevice">Audio Device</option>
+                <option value="telephoneFax">Telephone & Fax</option>
+            </select>
+
+            <label for="quantity">Enter Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" placeholder="1" required>
+
+            <label for="deviceAge">Device Age (in years):</label>
+            <input type="number" id="deviceAge" name="deviceAge" min="0" placeholder="0" required>
+
+            <label for="condition">Select Device Condition:</label>
+            <select id="condition" name="condition">
+                <option value="good">Good</option>
+                <option value="fair">Fair</option>
+                <option value="poor">Poor</option>
+            </select>
+
+            <button type="button" onclick="calculateImpact()">Calculate Impact</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </section>
+
+    <script>
+        function calculateImpact() {
+            const deviceData = {
+                smartphone: { harm: 5, benefit: 3 },
+                laptop: { harm: 20, benefit: 15 },
+                tv: { harm: 30, benefit: 20 },
+                desktop: { harm: 25, benefit: 18 },
+                computerEquipment: { harm: 15, benefit: 10 },
+                camcorder: { harm: 10, benefit: 6 },
+                digitalCamera: { harm: 8, benefit: 5 },
+                securityDevice: { harm: 12, benefit: 8 },
+                wiresCables: { harm: 3, benefit: 1 },
+                batteries: { harm: 7, benefit: 2 },
+                audioDevice: { harm: 18, benefit: 12 },
+                telephoneFax: { harm: 10, benefit: 7 }
+            };
+
+            const conditionModifiers = {
+                good: 1,
+                fair: 1.5,
+                poor: 2
+            };
+
+            const deviceType = document.getElementById("deviceType").value;
+            const quantity = parseInt(document.getElementById("quantity").value);
+            const deviceAge = parseInt(document.getElementById("deviceAge").value);
+            const condition = document.getElementById("condition").value;
+
+            if (!quantity || quantity <= 0 || !deviceAge || deviceAge < 0) {
+                document.getElementById("result").innerHTML = "Please enter valid inputs.";
+                return;
+            }
+
+            const { harm, benefit } = deviceData[deviceType];
+            const conditionModifier = conditionModifiers[condition];
+
+            const totalHarm = harm * quantity * conditionModifier * (1 + deviceAge * 0.1);
+            const totalBenefit = benefit * quantity * (1 - deviceAge * 0.05);
+
+            document.getElementById("result").innerHTML = `
+                <p><strong>Potential Environmental Harm:</strong> ${totalHarm.toFixed(2)} kg CO₂ equivalent.</p>
+                <p><strong>Benefits of Secure Disposal:</strong> Avoided ${totalBenefit.toFixed(2)} kg of toxic waste.</p>
+            `;
+        }
+    </script>
+</body>
+</html>

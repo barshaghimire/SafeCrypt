@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Encryptor/Decryptor</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f9f9f9, #27ae60); /* Updated background color */
+        }
+        h1.title {
+            text-align: center;
+            margin: 1rem 0;
+            color: #2ebc6b;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+        .form-container {
+            flex: 1;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2ebc6b;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #2ebc6b;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #259c58;
+        }
+        #message {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%; /* Ensures the footer spans the full width of the page */
+    position: relative; /* Avoids interference with content stacking */
+    bottom: 0; /* Keeps the footer at the bottom of the page */
+    left: 0; /* Ensures alignment with the viewport */
+    margin-top: 2rem; /* Adds space above the footer */
+}
+footer a {
+    color: #2ebc6b;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <h1 class="title">🔒 File Encryptor/Decryptor</h1>
+    <div class="container">
+        <!-- Encryption Form -->
+        <div class="form-container">
+            <form id="encrypt-form">
+                <h2>Encrypt File</h2>
+                <div class="form-group">
+                    <label for="encrypt-file">📁 Select File:</label>
+                    <input type="file" id="encrypt-file" name="file" required>
+                </div>
+                <div class="form-group">
+                    <label for="encrypt-key">🔑 Encryption Key:</label>
+                    <input type="text" id="encrypt-key" name="key" placeholder="Enter any key (e.g., mykey123)" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Encrypt File</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Decryption Form -->
+        <div class="form-container">
+            <form id="decrypt-form">
+                <h2>Decrypt File</h2>
+                <div class="form-group">
+                    <label for="decrypt-file">📁 Select Encrypted File:</label>
+                    <input type="file" id="decrypt-file" name="file" required>
+                </div>
+                <div class="form-group">
+                    <label for="decrypt-key">🔑 Decryption Key:</label>
+                    <input type="text" id="decrypt-key" name="key" placeholder="Enter the same key used for encryption" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Decrypt File</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="message"></div>
+
+    <script>
+        const encryptForm = document.getElementById('encrypt-form');
+        const decryptForm = document.getElementById('decrypt-form');
+        const messageDiv = document.getElementById('message');
+
+        // Handle Encryption
+        encryptForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const fileInput = document.getElementById('encrypt-file');
+            const keyInput = document.getElementById('encrypt-key');
+
+            if (!fileInput.files[0]) {
+                alert("Please select a file.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('key', keyInput.value);
+
+            messageDiv.innerText = "Encrypting your file... Please wait.";
+
+            try {
+                const response = await fetch('/encrypt', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const downloadUrl = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = downloadUrl;
+                    a.download = 'encrypted_file.enc'; // Save as encrypted binary file
+                    a.click();
+                    URL.revokeObjectURL(downloadUrl);
+                    messageDiv.innerText = "File encrypted successfully!";
+                } else {
+                    const error = await response.text();
+                    messageDiv.innerText = `Error: ${error}`;
+                }
+            } catch (err) {
+                messageDiv.innerText = "An error occurred while encrypting the file.";
+                console.error(err);
+            }
+        });
+
+        // Handle Decryption
+        decryptForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const fileInput = document.getElementById('decrypt-file');
+            const keyInput = document.getElementById('decrypt-key');
+
+            if (!fileInput.files[0]) {
+                alert("Please select a file.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('key', keyInput.value);
+
+            messageDiv.innerText = "Decrypting your file... Please wait.";
+
+            try {
+                const response = await fetch('/decrypt', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const downloadUrl = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = downloadUrl;
+                    a.download = 'decrypted_file'; // Download the decrypted original file
+                    a.click();
+                    URL.revokeObjectURL(downloadUrl);
+                    messageDiv.innerText = "File decrypted successfully!";
+                } else {
+                    const error = await response.text();
+                    messageDiv.innerText = `Error: ${error}`;
+                }
+            } catch (err) {
+                messageDiv.innerText = "An error occurred while decrypting the file.";
+                console.error(err);
+            }
+        });
+    </script>
+</body>
+</html>

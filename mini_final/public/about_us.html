@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | SafeCrypt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f9f9f9, #27ae60);
+            color: #333;
+        }
+
+        header {
+            background-color: #2ebc6b;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        .about-container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease;
+        }
+
+        .about-text {
+            flex: 1;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            color: #2ebc6b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .about-text:hover p {
+            color: #444;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 400px;
+            margin-left: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section:hover .about-text {
+            transform: translateX(-10px);
+        }
+
+        .about-section:hover .about-image {
+            transform: scale(1.05);
+        }
+
+        .mission-vision {
+            background-color: #ffffff;
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .mission-vision h2 {
+            font-size: 2rem;
+            color: #2ebc6b;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .mission-vision p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        footer {
+            background-color: #2ebc6b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>About SafeCrypt</h1>
+    </header>
+
+    <!-- About Us Content -->
+    <div class="about-container">
+        <section class="about-section">
+            <div class="about-text">
+                <h2>Who We Are</h2>
+                <p>SafeCrypt is a trusted company in secure e-waste management. We provide responsible and eco-friendly recycling services for electronic waste. We are committed to ensuring that old electronics are disposed of in a way that protects your data and the environment.</p>
+                <p>Our team is dedicated to offering data security, reducing e-waste, and promoting a more sustainable future. Whether you are looking to recycle old gadgets or secure your personal data, SafeCrypt is here to help you every step of the way.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://wastematerial.in/wp-content/uploads/2020/12/e-waste.jpg__1170x0_q85_subsampling-2_upscale.jpg" alt="SafeCrypt team">
+            </div>
+        </section>
+
+        <!-- Mission and Vision Section -->
+        <section class="mission-vision">
+            <h2>Our Mission</h2>
+            <p>At SafeCrypt, our mission is to provide safe, secure, and sustainable solutions for managing e-waste. We strive to protect the environment and safeguard the personal data of individuals and businesses alike. Our goal is to make e-waste recycling accessible to everyone while contributing to a greener world.</p>
+
+            <h2>Our Vision</h2>
+            <p>We envision a future where electronic waste is responsibly managed, where data security is a priority, and where sustainable practices are at the heart of technological progress. SafeCrypt aims to lead the way in e-waste recycling and data security, creating a safer and cleaner world for future generations.</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>©️ 2025 SafeCrypt. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

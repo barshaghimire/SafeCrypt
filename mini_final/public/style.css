@@ -1,0 +1,106 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  h1, h2 {
+    margin: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  header {
+    background: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  header h1 {
+    font-size: 24px;
+  }
+  
+  header p {
+    margin: 10px 0 0;
+    font-size: 14px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  .upload-section input[type="file"] {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  button {
+    background: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  .files-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .files-section li {
+    padding: 10px;
+    background: #f9f9f9;
+    margin: 5px 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+  }
+  
+  .files-section li .delete-button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .files-section li .delete-button:hover {
+    background: #a71d2a;
+  }
+  
+  .files-section .empty {
+    color: #888;
+    text-align: center;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    font-size: 14px;
+  }
+  

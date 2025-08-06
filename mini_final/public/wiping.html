@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure File Wiping System</title>
+   <link rel="stylesheet" href="style.css">
+  <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f9f9f9, #27ae60);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      background-color: #2ebc6b;
+      color: #fff;
+      padding: 2rem 1rem;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1rem;
+    }
+
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    h2 {
+      color: #2ebc6b;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .upload-section {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .upload-section input[type="file"] {
+      margin-bottom: 1rem;
+    }
+
+    .upload-section button {
+      background-color: #2ebc6b;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .upload-section button:hover {
+      background-color: #249958;
+    }
+
+    .files-section ul {
+      list-style: none;
+      margin-top: 1rem;
+      padding: 0;
+    }
+
+    .files-section ul li {
+      background-color: #f1f1f1;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      color: #333;
+      text-align: left;
+    }
+
+    .files-section ul li.empty {
+      color: #999;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      width: 100%;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #2ebc6b;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Secure File Wiping System</h1>
+      <p>Upload your files for secure deletion.</p>
+    </header>
+
+    <main>
+      <section class="upload-section">
+        <h2>Upload Files</h2>
+        <input type="file" id="fileInput" multiple>
+        <button id="uploadButton" onclick="uploadFiles()">Upload</button>
+      </section>
+
+      <section class="files-section">
+        <h2>Uploaded Files</h2>
+        <ul id="fileList">
+          <li class="empty">No files uploaded yet.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Secure File Wiping System</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
