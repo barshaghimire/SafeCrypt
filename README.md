@@ -1,4 +1,4 @@
-# eCrypt – Secure File Management & E-Waste Pickup Scheduler
+# SafeCrypt – Secure File Management & E-Waste Pickup Scheduler
 
 A secure and eco-friendly web application for managing electronic files and scheduling e-waste pickups.
 
